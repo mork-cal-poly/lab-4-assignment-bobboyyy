@@ -1,3 +1,10 @@
+let flowerX = 0;
+let flowerY = 0;
+
+let slothX = 0;
+let slothY = 0;
+let slothClick = false;
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -7,12 +14,6 @@ function setup() {
   myCanvas.parent("canvas-parent");
 }
 
-let flowerX = 0;
-let flowerY = 0;
-
-let slothX = 0;
-let slothY = 0;
-
 function draw() {
   background("#404040");
   push();
@@ -21,9 +22,12 @@ function draw() {
   pan();
   pop();
 
-  drawSloth(80, 350);
+  drawSloth(120, 230);
+  if (slothClick == true) {
+    slothX += 1;
+  }
 
-  drawFlowers(200, 150);
+  //drawFlowers(200, 150);
 }
 
 function drawSloth(x, y) {
@@ -171,4 +175,8 @@ function drawFlowers(x, y) {
   pop();
 }
 
-function mouseClicked() {}
+function mouseClicked() {
+  if (mouseX >= 120 && mouseX <= 282 && mouseY >= 80 && mouseY <= 244) {
+    slothClick != slothClick;
+  }
+}
