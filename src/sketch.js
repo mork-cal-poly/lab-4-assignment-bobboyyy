@@ -4,6 +4,8 @@ let flowerY = 0;
 let slothX = 0;
 let slothY = 0;
 let slothClick = false;
+let slothR = 0;
+let slothS = 1;
 
 function setup() {
   // These lines are fitting our canvas
@@ -22,16 +24,20 @@ function draw() {
   pan();
   pop();
 
-  drawSloth(120, 230);
-  if (slothClick == true) {
+  drawSloth(120, 230, 0, 0);
+  if (slothClick) {
     slothX += 1;
+    slothR += 0.0005;
+    slothS -= 0.001;
   }
 
   //drawFlowers(200, 150);
 }
 
-function drawSloth(x, y) {
+function drawSloth(x, y, r, s) {
   push();
+  scale(s + slothS);
+  rotate(r + slothR);
   translate(x + slothX, y + slothY);
   //push();
   //translate(200, 400);
@@ -177,6 +183,6 @@ function drawFlowers(x, y) {
 
 function mouseClicked() {
   if (mouseX >= 120 && mouseX <= 282 && mouseY >= 80 && mouseY <= 244) {
-    slothClick != slothClick;
+    slothClick = !slothClick;
   }
 }
