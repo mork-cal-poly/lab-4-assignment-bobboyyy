@@ -34,10 +34,10 @@ function draw() {
     slothS -= 0.001;
   }
 
-  drawFlowers(200, 150, 0, 0);
+  drawFlowers(250, 350, 0, 0);
   if (flowerClick) {
     flowerX += 1;
-    flowerR += 0.0005;
+    flowerR -= 0.0005;
     flowerS -= 0.001;
   }
 }
