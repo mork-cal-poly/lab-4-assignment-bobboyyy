@@ -1,5 +1,8 @@
 let flowerX = 0;
 let flowerY = 0;
+let flowerClick = false;
+let flowerR = 0;
+let flowerS = 1;
 
 let slothX = 0;
 let slothY = 0;
@@ -31,7 +34,12 @@ function draw() {
     slothS -= 0.001;
   }
 
-  //drawFlowers(200, 150);
+  drawFlowers(200, 150, 0, 0);
+  if (flowerClick) {
+    flowerX += 1;
+    flowerR += 0.0005;
+    flowerS -= 0.001;
+  }
 }
 
 function drawSloth(x, y, r, s) {
@@ -131,8 +139,10 @@ function pan() {
   ellipse(0, -160, 165);
 }
 
-function drawFlowers(x, y) {
+function drawFlowers(x, y, r, s) {
   push();
+  scale(s + flowerS);
+  rotate(r + flowerR);
   translate(x + flowerX, y + flowerY);
   //flowers
   strokeWeight(5);
@@ -184,5 +194,6 @@ function drawFlowers(x, y) {
 function mouseClicked() {
   if (mouseX >= 120 && mouseX <= 282 && mouseY >= 80 && mouseY <= 244) {
     slothClick = !slothClick;
+    flowerClick = !flowerClick;
   }
 }
