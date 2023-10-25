@@ -26,7 +26,7 @@ function draw() {
   strokeWeight(0);
   pan();
   pop();
-
+  drawPig(100, 100);
   drawSloth(120, 230, 0, 0);
   if (slothClick) {
     slothX += 1;
@@ -196,4 +196,32 @@ function mouseClicked() {
     slothClick = !slothClick;
     flowerClick = !flowerClick;
   }
+}
+function drawPig(xp, yp) {
+  push();
+  translate(xp, yp);
+  scale(0.05);
+  stroke(0);
+  strokeWeight(1.5);
+  fill(255, 182, 193);
+  ellipse(-50, 0, 50, 100); //back leg
+  ellipse(50, 0, 50, 100); //front leg
+  ellipse(0, -50, 200, 120); //body
+  ellipse(100, -75, 100); //head
+  triangle(95, -135, 90, -124, 100, -125); //left ear
+  triangle(110, -135, 105, -125, 115, -123); //right ear
+  fill(0);
+  ellipse(87, -90, 7); //left eye
+  ellipse(113, -90, 7); //right eye
+  noFill();
+  ellipse(100, -75, 20, 15); //nose
+  fill(0);
+  ellipse(95, -75, 4); //left nostril
+  ellipse(105, -75, 4); //right nostril
+  noFill();
+  arc(100, -60, 50, 25, 0, PI); //smile
+  strokeWeight(4);
+  arc(-105, -50, 10, 10, 0, (6 * PI) / 4); //tail
+  arc(-105, -60, 10, 10, (3 * PI) / 2, PI / 2); //tail
+  pop();
 }
